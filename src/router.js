@@ -1,25 +1,41 @@
-import Vue from 'vue'
-import Router from 'vue-router'
-import Home from './views/Home.vue'
 
-Vue.use(Router)
 
-export default new Router({
-  mode: 'history',
-  base: process.env.BASE_URL,
-  routes: [
-    {
-      path: '/',
-      name: 'home',
-      component: Home
-    },
-    {
-      path: '/about',
-      name: 'about',
-      // route level code-splitting
-      // this generates a separate chunk (about.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import(/* webpackChunkName: "about" */ './views/About.vue')
-    }
-  ]
-})
+export default {
+    mode: 'history',
+    routes: [
+        {
+            path: '/login',
+            name: "login",
+            component: () => import('./vue/login')
+        },
+        {
+            path: '/manager',
+            meta: { needAuth: true },
+            name: "layout",
+            beforeEnter: function (to, from, next) {
+                var arr, reg = new RegExp("(^| )" + 'auth' + "=([^;]*)(;|$)");
+                arr = document.cookie.match(reg)
+                if (arr ? unescape(arr[2]) : null) { 
+                    next(); 
+                } else {
+                    next({ path: '/login', query: { returnUrl: to.fullPath } });//拦截
+                }
+            },
+            component: () => import('./vue/layout'),
+            children: [
+                {
+                    path: 'user', // /manager/user
+                    name: "user",
+                    component: () => import("./vue/user")
+                },
+                {
+                    path: 'order', // /manager/order
+                    name: "order",
+                    component: () => import("./vue/order")
+                }
+            ]
+        }, {
+            path: '*', redirect: '/login'
+        }
+    ]
+}
