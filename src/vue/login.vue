@@ -15,8 +15,8 @@ export default {
         login:function(){
             document.cookie='auth=user1;Path=/;';
             var to=this.$route.query.returnUrl;
-            
-            this.$router.push(to?to:'/manager/user');
+    
+            this.$router.push('/manager/user');
         }
     }
 }
