@@ -2,17 +2,19 @@
   <div >
     {{form}}
    
-    <el-dialog title="登录"  :visible="visiable" width="30%">
+    <el-dialog title="登录"  :visible="visiable" width="400px">
       <el-form ref="form" :model="form"  label-width="80px"  :rules="rulesObj">
         <el-form-item  label="用户名"  prop="username"  >
-            <el-input v-model="form.username" ></el-input>
+            <el-input prefix-icon="el-icon-user" placeholder="请输入用户名" v-model="form.username" >
+
+            </el-input>
         </el-form-item> 
          <el-form-item label="密码" prop="password" >
-          <el-input type="password" v-model="form.password"></el-input>
+          <el-input type="password" prefix-icon="el-icon-lock" placeholder="请输入密码" v-model="form.password"></el-input>
         </el-form-item>
         <el-form-item  style="margin-bottom:0;"  prop="accept" >
          <el-checkbox  v-model="form.accept"  >
-               同意<a href="#">《用户协议》</a>
+               <span style="vertical-align: middle;">同意</span><el-link href="#" type="primary" >《用户协议》</el-link>
             </el-checkbox>
         </el-form-item>
         

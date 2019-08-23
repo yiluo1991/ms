@@ -1,6 +1,7 @@
 <template>
     <div>
-        <div>
+        <div id="nav">
+          
              <router-link to="/manager/user">
                 用户管理
             </router-link>
@@ -9,10 +10,15 @@
             </router-link>
             <button @click="logout">退出</button>
         </div>
-        <router-view></router-view>
+        <div id="main">
+            <div id="topbar"></div>
+            <router-view></router-view>
+        </div>
     </div>
 </template>
+
 <script>
+import '../a.less';
 export default {
     mounted () {
         console.log("mounted")
