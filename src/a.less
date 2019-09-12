@@ -3,11 +3,17 @@ body{
     padding: 0;
     margin:0;
 }
+
 #nav{
+    .el-scrollbar__wrap{
+        overflow-x: hidden;
+    }
     position: fixed;
     height: 100%;
     width:200px;
     left:0;
+    overflow-x: hidden;
+    overflow-y: auto;
     top:0;
     background: darken(@maincolor,35);
 }
@@ -15,6 +21,7 @@ body{
     margin-left:200px;
     padding-top:50px;
     #topbar{
+        z-index: 1999;
         position: fixed;
         left:200px;
         top:0;
@@ -22,5 +29,41 @@ body{
         height:50px;
         background: #fefefe;
         box-shadow: 0 0  5px rgba(0,0,0,0.4);
+        .el-breadcrumb{
+            line-height: 50px;
+            float:left;
+            margin-left: 10px;
+        }
+        .el-dropdown{
+            float:right;
+        }
+        .el-image{
+            width:40px;
+            height:40px;
+            border-radius: 50%;
+            overflow: hidden;
+            vertical-align: middle;
+        }
+        .el-icon-arrow-down{
+            line-height: 50px;
+            vertical-align: middle;
+        }
+    }
+}
+
+.toolbar{
+    padding:8px 5px;
+    border-bottom:1px solid #eee;
+    .searchinput{
+        width:300px;
+        margin-left:10px;
+        margin-right:10px;
+        display: inline-block;
+        .el-input__inner{
+            border-radius: 18px 0 0 18px;
+        }
+        .el-input-group__append, .el-input-group__prepend{
+            border-radius: 0 18px 18px 0;
+        }
     }
 }
