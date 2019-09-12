@@ -268,6 +268,7 @@ export default {
       }, 100);
       this.$nextTick(() => {
         this.$refs.form.clearValidate();
+         document.getElementById("file").value="";
       });
       
       var timer = setInterval(() => {
@@ -308,6 +309,7 @@ export default {
       };
       this.$nextTick(() => {
         this.$refs.form.clearValidate();
+         document.getElementById("file").value="";
       });
       setTimeout(() => {
         this.$refs.map.center({});
