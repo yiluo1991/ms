@@ -9,14 +9,14 @@ module.exports = {
         proxy: {
             //   /api/login
             '/api': {
-                target: 'http://localhost:3000', // http://localhost:3000/api/login
+                target: 'http://lihangsoft.com:3001', // http://localhost:3000/api/login
                 changeOrigin: true,
                 pathRewrite: {
                     "^/api": "/"
                 }
             },
             "/upload":{
-                target: 'http://localhost:3000', 
+                target: 'http://lihangsoft.com:3001', 
                 changeOrigin: true
             }
         }

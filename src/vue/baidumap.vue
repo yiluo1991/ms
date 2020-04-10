@@ -1,8 +1,8 @@
 <template>
   <div>
     <slot></slot>
-
-    <div ref="map" :style="mapStyle" style="margin-top:5px;"></div>
+  
+    <div ref="map"  :style="mapStyle" style="margin-top:5px;"></div>
   </div>
 </template>
 <script>
@@ -35,8 +35,8 @@ export default {
     var ele = this.$refs.map;
 
     map = new BMap.Map(ele); //创建地图
-    if (this.options.wheelZoom) {
-      map.enableScrollWheelZoom(); //  开启鼠标滚轮缩放
+    if (!this.options.wheelZoom) {
+      map.disableScrollWheelZoom(); //  开启鼠标滚轮缩放
     }
     if (this.options.suggestId) {
       var ac = new BMap.Autocomplete({

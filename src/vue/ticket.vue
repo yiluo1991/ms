@@ -274,14 +274,14 @@ export default {
       var timer = setInterval(() => {
         try {
           document.getElementById("abc").value = this.form.ShopAddress;
-          document.getElementsByClassName(
+           document.getElementsByClassName(
             "tangram-suggestion-main"
-          )[0].style.display = "none";
+           )[0].style.display = "none";
         } catch (error) {}
       }, 0);
       setInterval(() => {
         clearInterval(timer);
-      }, 200);
+      }, 500);
     },
 
     showAddDialog() {

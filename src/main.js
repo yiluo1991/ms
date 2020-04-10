@@ -5,6 +5,7 @@ import App from './vue/App';
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css'
 import  axios from  'axios';
+import 'babel-polyfill';
 Vue.use(VueRouter);
 Vue.use(ElementUI);
 

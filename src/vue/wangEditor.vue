@@ -22,8 +22,8 @@ export default {
     this.editor.customConfig.onchange = html => {
       this.text = html;
     };
-    window.e=this.editor;
     this.editor.create();
+    this.editor.txt.html(this.text) 
   },
   watch: {
     value: function(value) {
